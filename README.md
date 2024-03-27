@@ -145,6 +145,7 @@ services:
 - push many to many: `db.cars.updateMany({}, { $push : { owners : { $each : ["Gizike", "Béluka"] } }})`
 
 ### GUI tools:
+- default URL: `mongodb://localhost:27017`
 - [NoSQL Booster](https://nosqlbooster.com/)
 - [Studio3t - régen Robo3t néven futott](https://studio3t.com/) (free, regisztrációhoz kötött)
 - [MongoDB Compass](https://www.mongodb.com/products/tools/compass) (official)
