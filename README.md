@@ -21,7 +21,8 @@
   Példák: Neo4j, Amazon Neptune
   Használják: Kapcsolati adatok tárolásához, hálózatok, szociális hálózatok, telekommunikációs rendszerek, rekommendációs rendszerek esetében.
 
-## Docker
+
+## MongoDB
 
 ### Parts
 - mongod : mondoDb deamon
@@ -90,6 +91,13 @@ services:
       }
       ```
     - De lehet validáció: [https://json-schema.org/](https://json-schema.org/)
+
+### Elnevezések SQL vs Mongo
+- 
+- database: database
+- table: collection
+- record/row: document
+- column: field
 
 ### Commands:
 - [mongosh CRUD](https://www.mongodb.com/docs/mongodb-shell/crud/#std-label-mdb-shell-crud)
