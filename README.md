@@ -89,3 +89,34 @@ services:
 - update one: `db.books.updateOne({author: ObjectId('6604128c0f003bb469db83cb')}, { $set: { pages: 1000 }})`
 - update Many: `db.books.updateMany({ pages : { $lt : 100 }, {$set : { pages: 100 }}})`
 - replace: `db.books.replaceOne({_id: ObjectId('6604128c0f003bb469db83da')}, { author: "Replaced author", title: "Replaced title"})`
+- delete one: `db.books.deleteOne({_id: ObjectId('6604128c0f003bb469db83da')})`
+- delete many: `db.books.deleteMany({ pages : { $lte : 200 }})`
+- update array: `db.cars.updateOne({ _id: ObjectId('660422120f003bb469db83f0')}, { $set : {owners: ["Bob", "Bobek"]}})`
+- [Update operators](https://www.mongodb.com/docs/manual/reference/operator/update-array/)
+- pull one: `db.cars.updateOne({ _id: ObjectId('660422120f003bb469db83f0')}, { $pull : { owners : "Bob" }})`
+- pull many (radable multiline):
+  ```shell
+  db.cars.updateOne(
+    {
+      _id: ObjectId('660422120f003bb469db83ef')
+    }, 
+    { 
+      $pull : 
+      { 
+        owners : 
+        { 
+          $in : ["Jane", "Joe"] 
+        } 
+      } 
+    })`
+  ```
+- push to many: `db.cars.updateMany({}, { $push : { owners : "Lulu" }})`
+- push many to many: `db.cars.updateMany({}, { $push : { owners : { $each : ["Gizike", "Béluka"] } }})`
+
+## GUI tools:
+- [NoSQL Booster](https://nosqlbooster.com/)
+- [Studio3t - régen Robo3t néven futott](https://studio3t.com/) (free, regisztrációhoz kötött)
+- [MongoDB Compass](https://www.mongodb.com/products/tools/compass) (official)
+
+## Other tools
+- [Choco](https://chocolatey.org/install)
