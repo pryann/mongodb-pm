@@ -1,10 +1,33 @@
-# Mongodb
+# NoSQL
 
-## Parts
+## Típusai
+- Dokumentum-alapú adatbázisok:
+  A dokumentumtárolók központi koncepciója a dokumentum. A dokumentum valamilyen formátumban tárolt információ.
+  Példák: MongoDB, Couchbase
+  Használják: Rugalmas adatmodellhez, JSON vagy BSON formátumú dokumentumok tárolásához, gyakran webes alkalmazásokhoz és tartalomkezelő rendszerekhez.
+
+- Kulcs-érték tárolók:
+  A kulcs-érték adatbázisok séma nélküli adattárolást tesznek lehetővé, az értékeket a kulcsok segítségével lehet elérni illetve felülírni és ezen felül általában kevés műveletet támogatnak.
+  Példák: Redis, Riak
+  Használják: Gyors adateléréshez, cachinghez, számlálókhoz, üzenetsorokhoz és munkamenedzsmenthez.
+
+- Osztott oszlopfamilyás adatbázisok:
+  Táblákat, sorokat és oszlopokat használ, de ellentétben a relációs adatbázisokkal, az oszlopok neve és formátuma változhat soronként ugyanabban a táblában. A széles oszlopfamilyás adatbázist egy kétdimenziós kulcs-érték tárolónak lehet értelmezni.
+  Példák: Apache Cassandra, HBase
+  Használják: Rendkívül nagy méretű adatok tárolásához, amelyeket nagyon gyorsan kell lekérdezni, skálázható és elosztott környezetben.
+
+- Gráf adatbázisok:
+  A gráf-adatbázisok olyan adatok tárolására specializálódtak, amelyek jól modellezhetőek gráfként, azaz az adatok határozatlan számú kapcsolattal vannak összekötve
+  Példák: Neo4j, Amazon Neptune
+  Használják: Kapcsolati adatok tárolásához, hálózatok, szociális hálózatok, telekommunikációs rendszerek, rekommendációs rendszerek esetében.
+
+## Docker
+
+### Parts
 - mongod : mondoDb deamon
 - mongosh: mongoDB shell
 
-## Docker
+### Docker
 
 - create a `docker-compose.yml` file
 ```shell
@@ -32,7 +55,7 @@ services:
 - A `docker-compose.yml` fájl mappájában ki kell adni:  `docker compose up`
 - A konténerbe és futtatjuk a mongosh-t: `docker exec -it mongodb-pm mongosh`
 
-## BSON
+### BSON
 - A MongoDB dokumentum leíró formátuma, hasonló, mint a JSON
 - Alapba 16 mega egy dokumentum
 - [BSON típusok](https://www.mongodb.com/docs/manual/reference/bson-types/)
@@ -68,7 +91,7 @@ services:
       ```
     - De lehet validáció: [https://json-schema.org/](https://json-schema.org/)
 
-## Commands:
+### Commands:
 - [mongosh CRUD](https://www.mongodb.com/docs/mongodb-shell/crud/#std-label-mdb-shell-crud)
 - [CRUD operations exampels](https://www.mongodb.com/basics/crud)
 - DB lista: `show dbs`
@@ -113,10 +136,10 @@ services:
 - push to many: `db.cars.updateMany({}, { $push : { owners : "Lulu" }})`
 - push many to many: `db.cars.updateMany({}, { $push : { owners : { $each : ["Gizike", "Béluka"] } }})`
 
-## GUI tools:
+### GUI tools:
 - [NoSQL Booster](https://nosqlbooster.com/)
 - [Studio3t - régen Robo3t néven futott](https://studio3t.com/) (free, regisztrációhoz kötött)
 - [MongoDB Compass](https://www.mongodb.com/products/tools/compass) (official)
 
-## Other tools
+### Other tools
 - [Choco](https://chocolatey.org/install)
