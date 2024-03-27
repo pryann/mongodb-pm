@@ -1,0 +1,11 @@
+version: '1.0.0'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb-pm
+    restart: unless-stopped
+    volumes:
+      - ./scripts:/scripts
+    ports:
+      - '27017:27017'
