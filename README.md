@@ -143,6 +143,26 @@ services:
   ```
 - push to many: `db.cars.updateMany({}, { $push : { owners : "Lulu" }})`
 - push many to many: `db.cars.updateMany({}, { $push : { owners : { $each : ["Gizike", "Béluka"] } }})`
+- bulk :
+```shell
+db.article.bulkWrite([
+  {
+    insertOne: {
+      "document" : { votes: [3,4,5,3,2,2,0]}
+    }
+  },
+  {
+    updateOne: {
+      "filter" : { _id: ObjectId('660422120f003bb469db83f0' },
+      "update": { $pull : { votes: { $gte: 5 } }},
+    }
+  },
+   updateMany: {
+      "filter" : {},
+      "update": { $pull : { votes: { $eq: 0 } }},
+    }
+])
+```
 
 ### GUI tools:
 - default URL: `mongodb://localhost:27017`
