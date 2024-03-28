@@ -58,7 +58,7 @@ services:
 
 ### BSON
 - A MongoDB dokumentum leíró formátuma, hasonló, mint a JSON
-- Alapba 16 mega egy dokumentum
+- Alapba max 16 mega egy dokumentum
 - [BSON típusok](https://www.mongodb.com/docs/manual/reference/bson-types/)
 - SQL (az oszlopok kötöttek, ha valami nem kötelező adat, akkor NULL): 
   - columns: country, province, zip, city, street, type, house_number, floor, door
@@ -154,7 +154,7 @@ db.article.bulkWrite([
   {
     updateOne: {
       "filter" : { _id: ObjectId('660422120f003bb469db83f0' },
-      "update": { $pull : { votes: { $gte: 5 } }},
+      "update": { $pull : { votes: { $gt: 5 } }},
     }
   },
    updateMany: {
